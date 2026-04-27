@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+psycopg2-binary
+pika
+aio_pika
+requests
+websockets
+redis
+mcp

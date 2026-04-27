@@ -1,0 +1,10 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Ortam Değişkenleri
+.env
+
+# İşletim Sistemi
+.DS_Store
