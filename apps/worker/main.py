@@ -38,7 +38,7 @@ async def process_message(message: aio_pika.IncomingMessage):
             db.add(record)
             db.commit()
             
-            status_icon = "🚨 FRAUD" if is_fraud else "✅ ONAYLANDI"
+            status_icon = " FRAUD" if is_fraud else " ONAYLANDI"
             reason_text = reasons if reasons else "Temiz"
             print(f"💾 Karar: {status_icon} | Kullanıcı: {data['user_id']} | Tutar: {data['amount']} | Sebep: {reason_text}")
         
@@ -55,10 +55,10 @@ async def process_message(message: aio_pika.IncomingMessage):
                 API_URL = os.getenv("API_URL", "http://api:8000/broadcast")
                 requests.post(API_URL, json=tx_data, timeout=1)
             except Exception as e:
-                print(f"⚠️ Canlı yayın sinyali API'ye ulaştırılamadı: {e}")
+                print(f" Canlı yayın sinyali API'ye ulaştırılamadı: {e}")
 
         except Exception as e:
-            print(f"❌ DB Kayıt Hatası: {e}")
+            print(f" DB Kayıt Hatası: {e}")
             db.rollback()
         finally:
             db.close()
