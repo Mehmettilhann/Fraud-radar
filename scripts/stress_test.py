@@ -4,7 +4,6 @@ import random
 import requests
 from datetime import datetime, timezone
 
-# Brief'teki parametreleri Python'a tanımlıyoruz
 parser = argparse.ArgumentParser()
 parser.add_argument("--duration", type=int, default=10, help="Çalışma süresi (saniye)")
 parser.add_argument("--rate", type=float, default=2.0, help="Saniyedeki istek sayısı")
@@ -28,11 +27,11 @@ while time.time() - start_time < args.duration:
     if is_anomaly:
         amount = round(random.uniform(25000, 60000), 2) # Kural 1 İhlali: Devasa Tutar
         lat, lon = random.uniform(-90, 90), random.uniform(-180, 180) # Kural 2 İhlali: Rastgele imkansız konum
-        status = "🚨 ANOMALİ ÜRETİLDİ"
+        status = " ANOMALİ ÜRETİLDİ"
     else:
         amount = round(random.uniform(10, 500), 2) # Normal alışveriş
         lat, lon = 41.0, 28.9 # İstanbul (Sabit normal konum)
-        status = "✅ Normal İşlem  "
+        status = " Normal İşlem  "
 
     tx_data = {
         "user_id": user_id,
@@ -46,7 +45,7 @@ while time.time() - start_time < args.duration:
         requests.post(API_URL, json=tx_data, timeout=2)
         print(f"{status} -> User: {user_id} | Tutar: {amount} TL")
     except Exception as e:
-        print(f"❌ Hata: API'ye ulaşılamıyor.")
+        print(f" Hata: API'ye ulaşılamıyor.")
 
     # Saniyedeki istek sayısını (rate) tutturmak için beklet
     elapsed = time.time() - loop_start
@@ -54,4 +53,4 @@ while time.time() - start_time < args.duration:
     if sleep_time > 0:
         time.sleep(sleep_time)
 
-print("\n🎉 Test başarıyla tamamlandı! Dashboard'u kontrol ediniz.")
+print("\n Test başarıyla tamamlandı! Dashboard'u kontrol ediniz.")
