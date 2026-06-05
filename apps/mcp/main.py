@@ -63,7 +63,7 @@ def get_recent_frauds(hours: int = 24) -> str:
         
     frauds = result.get('frauds', [])
     if not frauds:
-        return f"Son {hours} saat içinde hiç fraud (şüpheli) işlem bulunamadı. ✅"
+        return f"Son {hours} saat içinde hiç fraud (şüpheli) işlem bulunamadı. "
         
     return (f"Son {hours} saatteki Şüpheli İşlem (Fraud) Raporu:\n"
             f"- Toplam Tespit Edilen Fraud: {result.get('total_frauds_found', 0)}\n"
