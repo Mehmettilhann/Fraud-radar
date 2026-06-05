@@ -39,9 +39,9 @@ def startup_event():
         rabbit_conn = pika.BlockingConnection(pika.URLParameters(RABBITMQ_URL))
         rabbit_channel = rabbit_conn.channel()
         rabbit_channel.queue_declare(queue=QUEUE_NAME, durable=True)
-        print("✅ RabbitMQ bağlantısı başarılı!")
+        print(" RabbitMQ bağlantısı başarılı!")
     except Exception as e:
-        print(f"❌ RabbitMQ Bağlantı Hatası: {e}")
+        print(f" RabbitMQ Bağlantı Hatası: {e}")
 
 @app.on_event("shutdown")
 def shutdown_event():
@@ -86,7 +86,7 @@ def process_transaction(tx: TransactionRequest):
         return {"status": "accepted", "transaction_id": transaction_id, "message": "İşlem analize gönderildi."}
     except Exception as e:
         # Hata detayını terminalde ve test scriptinde görebilmek için string olarak basıyoruz
-        print(f"❌ RabbitMQ Kritik Hata: {str(e)}")
+        print(f" RabbitMQ Kritik Hata: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 # ---------------------------------------------------------
