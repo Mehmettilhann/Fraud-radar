@@ -11,7 +11,7 @@ parser.add_argument("--anomaly-chance", type=int, default=20, help="Anomali olas
 args = parser.parse_args()
 
 API_URL = "http://localhost:8000/process-transaction"
-print(f"🚀 Otomatik Test Başlıyor: Süre={args.duration}s, Hız={args.rate} req/s, Anomali Olasılığı=%{args.anomaly_chance}\n")
+print(f" Otomatik Test Başlıyor: Süre={args.duration}s, Hız={args.rate} req/s, Anomali Olasılığı=%{args.anomaly_chance}\n")
 
 start_time = time.time()
 req_interval = 1.0 / args.rate
