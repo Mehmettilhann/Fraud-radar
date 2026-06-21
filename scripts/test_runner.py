@@ -22,7 +22,7 @@ def send_transaction(user_id, amount, lat, lon):
     except Exception as e:
         print(f" Hata: {e}")
 
-print("🚀 Canlı Veri Akışı Testi Başlıyor (Ekrana Bakmayı Unutma!)...\n")
+print("Canlı Veri Akışı Testi Başlıyor (Ekrana Bakmayı Unutma!)...\n")
 
 # Senaryolar: Karışık olarak Normal ve Fraud (Dolandırıcılık) işlemleri atıyoruz
 test_cases = [
